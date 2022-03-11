@@ -21,7 +21,7 @@ function Registration() {
     })
 
     const onSubmit = (data) =>{
-        axios.post("http://localhost:3001/auth", data)
+        axios.post("https://full-stack-app-nod-rea-mys-sdf.herokuapp.com/auth", data)
         .then(() =>{
             console.log(data);
             navigate("/");

@@ -12,13 +12,13 @@ let navigate = useNavigate();
 
 
 useEffect(() =>{
-    axios.get(`http://localhost:3001/auth/basicinfo/${id}`)
+    axios.get(`https://full-stack-app-nod-rea-mys-sdf.herokuapp.com/auth/basicinfo/${id}`)
     .then((response)=> {
         setUsername(response.data.username)
 
     })    
 
-    axios.get(`http://localhost:3001/posts/byuserId/${id}`)
+    axios.get(`https://full-stack-app-nod-rea-mys-sdf.herokuapp.com/posts/byuserId/${id}`)
     .then((response)=> {				
         
       setListOfPosts(response.data);

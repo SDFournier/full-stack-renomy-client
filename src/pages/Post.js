@@ -13,11 +13,11 @@ const [newComment, setNewComment] = useState("")
 const { authState} = useContext(AuthContext);
 
 useEffect(() => {
-    axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
+    axios.get(`https://full-stack-app-nod-rea-mys-sdf.herokuapp.com/posts/byId/${id}`).then((response) => {
         console.log(response);
         setPostObject(response.data);
     }); 
-    axios.get(`http://localhost:3001/comments/${id}`).then((response) => {        
+    axios.get(`https://full-stack-app-nod-rea-mys-sdf.herokuapp.com/comments/${id}`).then((response) => {        
 	setComments(response.data)
 });
 }, [])
@@ -25,7 +25,7 @@ useEffect(() => {
 
 
 const addComment = () => {
-    axios.post("http://localhost:3001/comments", {
+    axios.post("https://full-stack-app-nod-rea-mys-sdf.herokuapp.com/comments", {
         commentBody: newComment,
         PostId: id,},
         {
@@ -48,7 +48,7 @@ const addComment = () => {
 };
 
 const deleteComment = (id) => { 
-    axios.delete(`http://localhost:3001/comments/${id}`, {headers: {accessToken: localStorage.getItem('accessToken')},
+    axios.delete(`https://full-stack-app-nod-rea-mys-sdf.herokuapp.com/comments/${id}`, {headers: {accessToken: localStorage.getItem('accessToken')},
 }).then(()=>
 setComments(
     comments.filter((val) =>{
@@ -58,7 +58,7 @@ setComments(
 };
 
 const deletePost = (id) => {
-    axios.delete(`http://localhost:3001/posts/${id}`,{headers: {accessToken: localStorage.getItem('accessToken')},})
+    axios.delete(`https://full-stack-app-nod-rea-mys-sdf.herokuapp.com/posts/${id}`,{headers: {accessToken: localStorage.getItem('accessToken')},})
     .then(()=>{
         navigate("/");
     })
@@ -71,7 +71,7 @@ const editPost = (option) => {
         {
             newTitle = postObject.title;
         }
-        axios.put("http://localhost:3001/posts/title", 
+        axios.put("https://full-stack-app-nod-rea-mys-sdf.herokuapp.com/posts/title", 
 		    {newTitle: newTitle, id: id}, 
             {headers: {accessToken: localStorage.getItem('accessToken')},
         })
@@ -82,7 +82,7 @@ const editPost = (option) => {
         {
             newPostText = postObject.postText;
         }
-        axios.put("http://localhost:3001/posts/postText", 
+        axios.put("https://full-stack-app-nod-rea-mys-sdf.herokuapp.com/posts/postText", 
 		    {newPostText: newPostText, id: id}, 
             {headers: {accessToken: localStorage.getItem('accessToken')},
         }).then((response)=>{

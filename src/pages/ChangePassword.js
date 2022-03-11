@@ -12,7 +12,7 @@ const [newPassword, setNewPassword] = useState("")
 
 const changePassword = () => {
   
-  axios.put("http://localhost:3001/auth/changepassword",
+  axios.put("https://full-stack-app-nod-rea-mys-sdf.herokuapp.com/auth/changepassword",
     {oldPassword: oldPassword, newPassword: newPassword,},
     {headers: { accessToken: localStorage.getItem("accessToken")},},
     

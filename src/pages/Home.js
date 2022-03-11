@@ -17,7 +17,7 @@ function Home() {
     let navigate =useNavigate();
 
     const likeAPost = (postId) => {
-      axios.post("http://localhost:3001/likes", {PostId: postId}, {headers: {accessToken: localStorage.getItem("accessToken")}})
+      axios.post("https://full-stack-app-nod-rea-mys-sdf.herokuapp.com/likes", {PostId: postId}, {headers: {accessToken: localStorage.getItem("accessToken")}})
     .then((response) =>{
       
       setListOfPosts(listOfPosts.map((post)=>{
@@ -52,7 +52,7 @@ function Home() {
       navigate("/login");
     }else{
         
-      axios.get("http://localhost:3001/posts", {headers: {accessToken: localStorage.getItem("accessToken")}})
+      axios.get("https://full-stack-app-nod-rea-mys-sdf.herokuapp.com/posts", {headers: {accessToken: localStorage.getItem("accessToken")}})
     .then((response) => {
       console.log(response.data);
       setListOfPosts(response.data.listOfPosts);

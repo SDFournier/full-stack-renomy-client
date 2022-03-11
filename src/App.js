@@ -26,7 +26,7 @@ function App() {
 
 
   useEffect(() =>{
-    axios.get("http://localhost:3001/auth/auth", {
+    axios.get("https://full-stack-app-nod-rea-mys-sdf.herokuapp.com/auth/auth", {
       headers: {
         accessToken: localStorage.getItem("accessToken"),
       },
